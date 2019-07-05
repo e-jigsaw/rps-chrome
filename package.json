@@ -1,20 +1,9 @@
 {
-  "name": "rps-chrome",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "name": "sbt-chrome",
+  "description": "Scrapbox Toolbelt",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/e-jigsaw/rps-chrome.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/e-jigsaw/rps-chrome/issues"
-  },
-  "homepage": "https://github.com/e-jigsaw/rps-chrome#readme"
+  "license": "MIT"
 }

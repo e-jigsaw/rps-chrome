@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "sbt-chrome",
+  "description": "Scrapbox Toolbelt",
+  "version": "0.0.1",
+  "author": "Takaya Kobayashi (https://kbys.tk/y)",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://scrapbox.io/*"],
+    "js": ["content.js"]
+  }],
+  "web_accessible_resources": ["inject.js"]
+}

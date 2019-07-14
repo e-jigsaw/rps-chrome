@@ -23,5 +23,28 @@ document.getElementById('fetch').addEventListener('click', () => {
 })
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message)
+  switch (message.type) {
+    case 'pageFetched': {
+      const {lines} = message.page
+      for (let i = 0; i < lines.length; i++) {
+        const gyazoRegEx = /\[https:\/\/gyazo.com\/(.*)\]/
+        const braketRegEx = /\[(.*?)\]/gm
+        const hashtagRegEx = /(\s|^)?#(.*?)(\s|$)/gm
+        let tags = []
+        if (gyazoRegEx.test(lines[i].text)) {
+          console.log(gyazoRegEx.exec(lines[i].text))
+          if (lines[i + 1]) {
+            while ((res = braketRegEx.exec(lines[i + 1].text)) !== null) {
+              tags.push(res[1])
+            }
+            while ((res = hashtagRegEx.exec(lines[i + 1].text)) !== null) {
+              tags.push(res[2])
+            }
+            console.log(tags)
+          }
+        }
+      }
+      break
+    }
+  }
 })
